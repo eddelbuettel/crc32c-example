@@ -3,9 +3,33 @@
 
 #' Demo of calling 'crc32c' functions
 #'
-#' @return The function is called for its side effect of printing to stdout,
-#' nothing is returned
+#' The 'crc32c' website has command-line demo showing how to call the library.
+#' This function \code{crc32cdemo} exposes the same functionality, but relying on R package 'crc32c'
+#' to provide the object code. The two other functions provide checksum calculation examples.
+#'
+#' @return The function \code{crc32cdemo} is called for its side effect of printing to stdout,
+#' and nothing is returned. The function \code{crc32c_raw} returns the checksum of a raw
+#' input vector.
 crc32cdemo <- function() {
     invisible(.Call(`_crc32cExample_crc32cdemo`))
+}
+
+#' @rdname crc32cdemo
+#' @param s A string
+#' @examples
+#' s <- "The quick brown fox"
+#' crc32c_string(s)
+crc32c_string <- function(s) {
+    .Call(`_crc32cExample_crc32c_string`, s)
+}
+
+#' @rdname crc32cdemo
+#' @param x A raw vector
+#' @examples
+#' r <- sin(seq(0, pi, by = 0.01))
+#' rb <- writeBin(r, raw(), size = 8L)
+#' crc32c_raw(rb)
+crc32c_raw <- function(x) {
+    .Call(`_crc32cExample_crc32c_raw`, x)
 }
 

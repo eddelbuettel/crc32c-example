@@ -19,9 +19,33 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// crc32c_string
+std::string crc32c_string(std::string s);
+RcppExport SEXP _crc32cExample_crc32c_string(SEXP sSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type s(sSEXP);
+    rcpp_result_gen = Rcpp::wrap(crc32c_string(s));
+    return rcpp_result_gen;
+END_RCPP
+}
+// crc32c_raw
+std::string crc32c_raw(Rcpp::RawVector x);
+RcppExport SEXP _crc32cExample_crc32c_raw(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::RawVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(crc32c_raw(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_crc32cExample_crc32cdemo", (DL_FUNC) &_crc32cExample_crc32cdemo, 0},
+    {"_crc32cExample_crc32c_string", (DL_FUNC) &_crc32cExample_crc32c_string, 1},
+    {"_crc32cExample_crc32c_raw", (DL_FUNC) &_crc32cExample_crc32c_raw, 1},
     {NULL, NULL, 0}
 };
 

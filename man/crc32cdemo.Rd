@@ -2,14 +2,35 @@
 % Please edit documentation in R/RcppExports.R
 \name{crc32cdemo}
 \alias{crc32cdemo}
+\alias{crc32c_string}
+\alias{crc32c_raw}
 \title{Demo of calling 'crc32c' functions}
 \usage{
 crc32cdemo()
+
+crc32c_string(s)
+
+crc32c_raw(x)
+}
+\arguments{
+\item{s}{A string}
+
+\item{x}{A raw vector}
 }
 \value{
-The function is called for its side effect of printing to stdout,
-nothing is returned
+The function \code{crc32cdemo} is called for its side effect of printing to stdout,
+and nothing is returned. The function \code{crc32c_raw} returns the checksum of a raw
+input vector.
 }
 \description{
-Demo of calling 'crc32c' functions
+The 'crc32c' website has command-line demo showing how to call the library.
+This function \code{crc32cdemo} exposes the same functionality, but relying on R package 'crc32c'
+to provide the object code. The two other functions provide checksum calculation examples.
+}
+\examples{
+s <- "The quick brown fox"
+crc32c_string(s)
+r <- sin(seq(0, pi, by = 0.01))
+rb <- writeBin(r, raw(), size = 8L)
+crc32c_raw(rb)
 }
