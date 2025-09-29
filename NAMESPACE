@@ -1,0 +1,4 @@
+useDynLib(crc32cExample, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")
+import(crc32c)

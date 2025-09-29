@@ -1,0 +1,16 @@
+Package: crc32cExample
+Type: Package
+Title: Example Package Using Exported 'crc32c' Functions
+Version: 0.0.1
+Date: 2025-09-29
+Authors@R: person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org")
+Description: The 'crc32c' package exposes a C-level API allowing other packages to use
+ the functions it exposed. This packages provides a simple example of how. (The 'zigg'
+ package has more extended examples of using the function it exposes in four different
+ ways.)
+URL: https://github.com/eddelbuettel/crc32cExample
+BugReports: https://github.com/eddelbuettel/crc32cExample/issues
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.1.0), crc32c
+LinkingTo: Rcpp, crc32c
+RoxygenNote: 6.0.1
